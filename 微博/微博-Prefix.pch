@@ -1,0 +1,96 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "UIImage+Extension.h"
+#import "UIView+Extension.h"
+#import "UIBarButtonItem+Extension.h"
+
+
+// 颜色
+#define WeiboColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+// 随机色
+#define RandomColor WeiboColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+
+//全局背景色
+#define GlobalBackgroundColor WeiboColor(239,239,239)
+
+// 是否为iOS7
+#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+
+#define NavigationTitleFont [UIFont boldSystemFontOfSize:20]
+
+// 是否为4inch
+#define FourInch ([UIScreen mainScreen].bounds.size.height == 568.0)
+
+#define AppKey @"1008260876"
+#define AppSecret @"4729e687447c891d613520ad128c6416"
+#define RedirectURL @"http://www.baidu.com"
+
+#define IS_IOS8OrMore ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0)
+
+// 屏幕尺寸
+#define ScreenW [UIScreen mainScreen].bounds.size.width
+
+// cell的计算参数
+
+// cell的内边距
+#define StatusCellMargin 10
+// cell的内边距
+#define StatusCellInset 10
+
+/*首页微博cell相关*/
+// 原创微博昵称字体
+#define StatusOrginalNameFont [UIFont systemFontOfSize:16]
+// 原创微博时间字体
+#define StatusOrginalTimeFont [UIFont systemFontOfSize:12]
+// 原创微博来源字体
+#define StatusOrginalSourceFont StatusOrginalTimeFont
+// 原创微博正文字体
+#define StatusOrginalTextFont [UIFont systemFontOfSize:17]
+
+// 转发微博昵称字体
+#define StatusRetweetedNameFont StatusOrginalNameFont
+// 转发微博正文字体
+#define StatusRetweetedTextFont StatusOrginalTextFont
+
+//微博正文高亮颜色
+#define StatusHighTextColor WeiboColor(88, 161, 253)
+//富文本里出现的链接
+#define LinkText @"LinkText"
+
+//微博链接点击通知
+#define StatusLinkDidSelectedNotification @"StatusLinkDidSelectedNotification"
+
+
+/*表情相关*/
+
+//表情最大行数
+#define EmotionMaxRows 3
+//表情最大列数
+#define EmotionMaxCols 7
+//表情每页最大个数
+#define EmotionMaxcountPerPage (EmotionMaxRows * EmotionMaxCols - 1)
+
+//表情通知
+//表情选中的通知
+#define EmotionDidSelectedNotification @"EmotionDidSelectedNotification"
+//通知里取出表情用的key
+#define SelectedEmotion @"SelectedEmotion"
+//表情删除的通知
+#define EmotionDidDeletedNotification @"EmotionDidDeletedNotification"
+
+
+#endif
